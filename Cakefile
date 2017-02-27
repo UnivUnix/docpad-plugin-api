@@ -238,17 +238,17 @@ actions =
 			#actions.prepublish(opts, safe next, step2)
 		step1 = ->
 			console.log('\nnpm publish:')
-			spawn(NPM, ['publish'], {output:true, cwd:APP_PATH}).on('close', safe next, step3)
+			spawn(NPM, ['publish'], {output:true, cwd:APP_PATH}).on('close', safe next, step2)
 		step2 = ->
 			console.log('\ngit tag:')
-			spawn(GIT, ['tag', 'v'+PACKAGE_DATA.version, '-a'], {output:true, cwd:APP_PATH}).on('close', safe next, step4)
+			spawn(GIT, ['tag', 'v'+PACKAGE_DATA.version, '-a'], {output:true, cwd:APP_PATH}).on('close', safe next, step3)
 		step3 = ->
 			console.log('\ngit push origin master:')
-			spawn(GIT, ['push', 'origin', 'master'], {output:true, cwd:APP_PATH}).on('close', safe next, step5)
+			spawn(GIT, ['push', 'origin', 'master'], {output:true, cwd:APP_PATH}).on('close', safe next, step4)
 		step4 = ->
 			console.log('\ngit push tags:')
-			spawn(GIT, ['push', 'origin', '--tags'], {output:true, cwd:APP_PATH}).on('close', safe next, step6)
-		step6 = next
+			spawn(GIT, ['push', 'origin', '--tags'], {output:true, cwd:APP_PATH}).on('close', safe next, step5)
+		step5 = next
 
 		# Start
 		step1()
