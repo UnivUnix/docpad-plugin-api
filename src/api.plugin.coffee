@@ -4,6 +4,10 @@ module.exports = (BasePlugin) ->
 	class ApiPlugin extends BasePlugin
 		# Plugin name
 		name: 'api'
+
+		config:
+			apiSource:
+		
 		# The rest of your plugin definition goes here
     # ...
 		serverExtend: (opts) ->
