@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/UnivUnix/docpad-plugin-api.svg?branch=master)](https://travis-ci.org/UnivUnix/docpad-plugin-api)
+
+
 # Api plugin for [DocPad](http://docpad.org)
 
 # ATENTION
@@ -36,5 +39,3 @@ and licensed under:
 - The incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://opensource.org/licenses/mit-license.php)
 
 <!-- /LICENSE -->
-
-

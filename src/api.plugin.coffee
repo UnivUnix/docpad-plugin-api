@@ -6,8 +6,8 @@ module.exports = (BasePlugin) ->
 		name: 'api'
 
 		config:
-			apiSource:
-		
+			apiSource: ""
+
 		# The rest of your plugin definition goes here
     # ...
 		serverExtend: (opts) ->
