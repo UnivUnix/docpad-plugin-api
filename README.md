@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/UnivUnix/docpad-plugin-api.svg?branch=master)](https://travis-ci.org/UnivUnix/docpad-plugin-api)
+<span class="badge-npmversion"><a href="https://npmjs.org/package/docpad" title="View this project on NPM"><img src="https://img.shields.io/npm/v/docpad.svg" alt="NPM version" /></a></span>
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/docpad" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/docpad.svg" alt="NPM downloads" /></a></span>
 
 
 # Api plugin for [DocPad](http://docpad.org)
