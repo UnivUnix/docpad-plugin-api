@@ -10,7 +10,6 @@ build/
 components/
 bower_components/
 node_modules/
-docpad/
 
 # Private Files
 .env
