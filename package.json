@@ -13,7 +13,9 @@
   "badges": {
     "travis": true,
     "npm": true,
-    "npmdownloads": true
+    "npmdownloads": true,
+    "david": true,
+    "daviddev": true
   },
   "author": "UnivUnix <admins@univunix.com> (https://univunix.com)",
   "maintainers": [
