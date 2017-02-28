@@ -1,10 +1,18 @@
 language: node_js
-before_script: "./node_modules/.bin/cake compile"
-script: "npm test"
 node_js:
   - "4"
   - "5"
   - "6"
+env:
+  - CXX=g++-4.8
+before_script: "./node_modules/.bin/cake compile"
+script: "npm test"
 cache:
   directories:
-- node_modules
+    - node_modules
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
