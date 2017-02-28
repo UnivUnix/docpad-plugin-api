@@ -264,7 +264,7 @@ commands =
 	watch:       'compile our files initially, and again for each change (runs install)'
 	test:        'run our tests (runs compile)'
 	prepublish:  'prepare our package for publishing'
-	publish:     'publish our package (runs prepublish)'
+	publish:     'publish our package'
 
 Object.keys(commands).forEach (key) ->
 	description = commands[key]

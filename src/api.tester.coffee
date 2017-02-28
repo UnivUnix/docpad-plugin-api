@@ -24,11 +24,20 @@ module.exports = (testers) ->
         outExpectedPath = tester.config.outExpectedPath
         plugin = tester.docpad.getPlugin('api')
 
-        test 'api/engine/version url', (done) ->
+        test 'GET api/engine/version url', (done) ->
           fileUrl = "#{baseUrl}/api/engine/version"
           request fileUrl, (err,response,actual) ->
             return done(err)  if err
             actualStr = actual.match(/docpad-plugin-api/)
             expectedStr ='docpad-plugin-api'
+            expect(actualStr[0]).to.equal(expectedStr)
+            done()
+
+        test 'GET api/test', (done) ->
+          fileUrl = "#{baseUrl}/api/test"
+          request fileUrl, (err, response, actual) ->
+            return done(err) if err
+            actualStr = actual.match(/OK/)
+            expectedStr = 'OK'
             expect(actualStr[0]).to.equal(expectedStr)
             done()

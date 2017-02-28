@@ -1,3 +1,4 @@
+path = require('path')
 # Export Plugin
 module.exports = (BasePlugin) ->
 	# Define Plugin
@@ -6,17 +7,22 @@ module.exports = (BasePlugin) ->
 		name: 'api'
 
 		config:
-			apiSource: ""
+			apiSource: ''
 
-		# The rest of your plugin definition goes here
-    # ...
 		serverExtend: (opts) ->
 			#Extract server from options.
 			{server} = opts
+			docpad = @docpad
+			rootPath = docpad.getConfig().rootPath
+			customApi = require(path.join(rootPath, @config.apiSource))
 
+			# Default route.
 			server.get '/api/engine/version', (req, res, next) ->
 				res.json({
 					name: 'docpad-plugin-api',
 					dev: 'UnivUnix',
 					version: '2.0.0'
 					})
+
+			# Go to custom API routes.
+			customApi(opts)
