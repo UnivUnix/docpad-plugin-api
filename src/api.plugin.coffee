@@ -1,4 +1,5 @@
 path = require('path')
+packJson = require('../package.json');
 # Export Plugin
 module.exports = (BasePlugin) ->
 	# Define Plugin
@@ -19,9 +20,9 @@ module.exports = (BasePlugin) ->
 			# Default route.
 			server.get '/api/engine/version', (req, res, next) ->
 				res.json({
-					name: 'docpad-plugin-api',
-					dev: 'UnivUnix',
-					version: '2.0.0'
+					name: packJson.name,
+					dev: packJson.author,
+					version: packJson.version
 					})
 
 			# Go to custom API routes.

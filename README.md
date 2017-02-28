@@ -19,6 +19,7 @@ docpad install api
 
 <!-- /INSTALL -->
 
+
 ## How to use the plugin
 
 * First, you need to create a Javascript file inside your Docpad project.
@@ -77,3 +78,5 @@ and licensed under:
 - The incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://opensource.org/licenses/mit-license.php)
 
 <!-- /LICENSE -->
+
+
