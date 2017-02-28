@@ -19,6 +19,42 @@ docpad install api
 
 <!-- /INSTALL -->
 
+## How to use the plugin
+
+* First, you need to create a Javascript file inside your Docpad project.
+You must create that as a NodeJS module. Check the next example:
+
+``` javascript
+module.exports = function (opts) {
+  var server = opts.server
+
+  // Put your routes here.
+  server.get('/api/test', function (req, res, next) {
+    return res.json({
+      test: 'OK'
+    })
+  })
+}
+```
+
+* Finally, you have to put the path of the file in Docpad configuration file:
+
+``` coffee-script
+# DocPad Configuration File
+# http://docpad.org/docs/config
+
+# Define the DocPad Configuration
+docpadConfig = {
+  # Plugins configuration
+  plugins:
+    api:
+      apiSource: 'api/api-test.js'
+}
+
+# Export the DocPad Configuration
+module.exports = docpadConfig
+```
+
 
 <!-- HISTORY/ -->
 
@@ -41,5 +77,3 @@ and licensed under:
 - The incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://opensource.org/licenses/mit-license.php)
 
 <!-- /LICENSE -->
-
-
