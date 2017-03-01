@@ -8,14 +8,21 @@ module.exports = (BasePlugin) ->
 		name: 'api'
 
 		config:
-			apiSource: ''
+			source: [
+				uri: ''
+				type: 'js',
+				uri: ''
+				type: 'swagger'
+			]
 
 		serverExtend: (opts) ->
 			#Extract server from options.
 			{server} = opts
 			docpad = @docpad
 			rootPath = docpad.getConfig().rootPath
-			customApi = require(path.join(rootPath, @config.apiSource))
+			customApis = []
+			for src in @config.source
+				customApis.push(require(path.join(rootPath, src.uri)))
 
 			# Default route.
 			server.get '/api/engine/version', (req, res, next) ->
@@ -26,4 +33,5 @@ module.exports = (BasePlugin) ->
 					})
 
 			# Go to custom API routes.
-			customApi(opts)
+			for func in customApis
+				func(opts)

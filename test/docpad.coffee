@@ -6,7 +6,10 @@ docpadConfig = {
   # Plugins configuration
   plugins:
     api:
-      apiSource: 'api/api-test.js'
+      source: [
+        uri: 'api/api-test.js'
+        type: 'js'
+        ]
 }
 
 # Export the DocPad Configuration
