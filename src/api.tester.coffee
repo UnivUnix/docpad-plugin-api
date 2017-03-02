@@ -20,7 +20,7 @@ module.exports = (testers) ->
       # Test
       @suite 'plugin api', (suite,test) ->
         # Prepare
-        baseUrl = "http://localhost:#{tester.docpad.config.port}"
+        baseUrl = "http://localhost:9778"
         outExpectedPath = tester.config.outExpectedPath
         plugin = tester.docpad.getPlugin('api')
 
