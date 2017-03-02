@@ -6,7 +6,7 @@ node_js:
 env:
   - CXX=g++-4.8
 before_script: "./node_modules/.bin/cake compile"
-script: "npm test"
+script: "PORT=9778 npm test"
 cache:
   directories:
     - node_modules

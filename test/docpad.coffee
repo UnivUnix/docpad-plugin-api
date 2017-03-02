@@ -3,7 +3,6 @@
 
 # Define the DocPad Configuration
 docpadConfig = {
-  port: 9754
   # Plugins configuration
   plugins:
     api:
