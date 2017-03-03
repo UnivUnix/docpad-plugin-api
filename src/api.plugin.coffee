@@ -8,6 +8,7 @@ module.exports = (BasePlugin) ->
 		name: 'api'
 
 		config:
+			baseApiUrl: '/api'
 			source: [
 				uri: ''
 				type: 'js',
@@ -25,7 +26,7 @@ module.exports = (BasePlugin) ->
 				customApis.push(require(path.join(rootPath, src.uri)))
 
 			# Default route.
-			server.get '/api/engine/version', (req, res, next) ->
+			server.get "#{@config.baseApiUrl}/engine/version", (req, res, next) ->
 				res.json({
 					name: packJson.name,
 					dev: packJson.author,
@@ -34,4 +35,4 @@ module.exports = (BasePlugin) ->
 
 			# Go to custom API routes.
 			for func in customApis
-				func(opts)
+				func(opts, @config.baseApiUrl)

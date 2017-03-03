@@ -2,7 +2,6 @@
 module.exports = (testers) ->
 
   chai = require('chai')
-  mocha = require('mocha')
   request = require('request')
 
   expect = chai.expect
@@ -20,12 +19,11 @@ module.exports = (testers) ->
       # Test
       @suite 'plugin api', (suite,test) ->
         # Prepare
-        baseUrl = "http://localhost:9778"
-        outExpectedPath = tester.config.outExpectedPath
+        baseUrl = "http://localhost:#{tester.docpad.config.port}"
         plugin = tester.docpad.getPlugin('api')
 
-        test 'GET api/engine/version url', (done) ->
-          fileUrl = "#{baseUrl}/api/engine/version"
+        test "GET #{tester.docpad.config.plugins.api.baseApiUrl}/engine/version url", (done) ->
+          fileUrl = "#{baseUrl}#{tester.docpad.config.plugins.api.baseApiUrl}/engine/version"
           request fileUrl, (err,response,actual) ->
             return done(err)  if err
             actualStr = actual.match(/docpad-plugin-api/)
@@ -33,8 +31,8 @@ module.exports = (testers) ->
             expect(actualStr[0]).to.equal(expectedStr)
             done()
 
-        test 'GET api/test', (done) ->
-          fileUrl = "#{baseUrl}/api/test"
+        test "GET #{tester.docpad.config.plugins.api.baseApiUrl}/test", (done) ->
+          fileUrl = "#{baseUrl}#{tester.docpad.config.plugins.api.baseApiUrl}/test"
           request fileUrl, (err, response, actual) ->
             return done(err) if err
             actualStr = actual.match(/OK/)

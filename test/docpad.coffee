@@ -6,6 +6,7 @@ docpadConfig = {
   # Plugins configuration
   plugins:
     api:
+      baseApiUrl: '/APIURLTEST'
       source: [
         uri: 'api/api-test.js'
         type: 'js'
