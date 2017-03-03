@@ -10,10 +10,8 @@ module.exports = (BasePlugin) ->
 		config:
 			baseApiUrl: '/api'
 			source: [
+				uri: '',
 				uri: ''
-				type: 'js',
-				uri: ''
-				type: 'swagger'
 			]
 
 		serverExtend: (opts) ->
@@ -36,3 +34,13 @@ module.exports = (BasePlugin) ->
 			# Go to custom API routes.
 			for func in customApis
 				func(opts, @config.baseApiUrl)
+
+			server.use (req, res, next) ->
+				res.status(404).json({
+						error: 'Not found'
+					})
+
+			server.use (err, req, res, next) ->
+				res.status(500).json({
+						error: 'Server failure'
+					})

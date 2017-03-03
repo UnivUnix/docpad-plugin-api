@@ -26,14 +26,18 @@ docpad install api
 You must create that as a NodeJS module. Check the next example:
 
 ``` javascript
-module.exports = function (opts) {
+module.exports = function (opts, baseApiUrl) {
   var server = opts.server
 
-  // Put your routes here.
-  server.get('/api/test', function (req, res, next) {
+  server.get(baseApiUrl + '/test', function (req, res, next) {
     return res.json({
       test: 'OK'
     })
+  })
+
+  server.get(baseApiUrl + '/bbbb', function (req, res, next) {
+    var err = new Error()
+    next(err)
   })
 }
 ```
@@ -49,7 +53,10 @@ docpadConfig = {
   # Plugins configuration
   plugins:
     api:
-      apiSource: 'api/api-test.js'
+      baseApiUrl: '/APIURLTEST'
+      source: [
+        uri: 'api/api-test.js'
+        ]
 }
 
 # Export the DocPad Configuration
@@ -78,5 +85,3 @@ and licensed under:
 - The incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://opensource.org/licenses/mit-license.php)
 
 <!-- /LICENSE -->
-
-

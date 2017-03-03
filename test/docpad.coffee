@@ -9,7 +9,6 @@ docpadConfig = {
       baseApiUrl: '/APIURLTEST'
       source: [
         uri: 'api/api-test.js'
-        type: 'js'
         ]
 }
 

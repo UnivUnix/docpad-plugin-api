@@ -1,7 +1,9 @@
 ## History
 
-v2.0.2 March 1, 2017
-	- Minor changes and fixes.
+v2.1.0 Coming soon
+	- Load multiple API Javascript files.
+	- Returns 404 and 500 errors in JSON format.
+	- Configurable API base URL. 
 
 v2.0.1 February 28, 2017
 	- We can load our custom API file written as NodeJS module (in Javascript using ExpressJS functions).

@@ -6,4 +6,9 @@ module.exports = function (opts, baseApiUrl) {
       test: 'OK'
     })
   })
+
+  server.get(baseApiUrl + '/bbbb', function (req, res, next) {
+    var err = new Error()
+    next(err)
+  })
 }
