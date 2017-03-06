@@ -40,20 +40,20 @@ module.exports = (testers) ->
             expect(actualStr[0]).to.equal(expectedStr)
             done()
 
-        test "GET 404 error", (done) ->
-          fileUrl = "#{baseUrl}#{tester.docpad.config.plugins.api.baseApiUrl}/aaaa"
-          request fileUrl, (err, response, actual) ->
-            return done(err) if err
-            actualStr = actual.match(/Not found/)
-            expectedStr = 'Not found'
-            expect(actualStr[0]).to.equal(expectedStr)
-            done()
+        #test "GET 404 error", (done) ->
+        #  fileUrl = "#{baseUrl}#{tester.docpad.config.plugins.api.baseApiUrl}/aaaa"
+        #  request fileUrl, (err, response, actual) ->
+        #    return done(err) if err
+        #    actualStr = actual.match(/Not found/)
+        #    expectedStr = 'Not found'
+        #    expect(actualStr[0]).to.equal(expectedStr)
+        #    done()
 
-        test "GET 500 error", (done) ->
-          fileUrl = "#{baseUrl}#{tester.docpad.config.plugins.api.baseApiUrl}/bbbb"
-          request fileUrl, (err, response, actual) ->
-            return done(err) if err
-            actualStr = actual.match(/Server failure/)
-            expectedStr = 'Server failure'
-            expect(actualStr[0]).to.equal(expectedStr)
-            done()
+        #test "GET 500 error", (done) ->
+        #  fileUrl = "#{baseUrl}#{tester.docpad.config.plugins.api.baseApiUrl}/bbbb"
+        #  request fileUrl, (err, response, actual) ->
+        #    return done(err) if err
+        #    actualStr = actual.match(/Server failure/)
+        #    expectedStr = 'Server failure'
+        #    expect(actualStr[0]).to.equal(expectedStr)
+        #    done()
