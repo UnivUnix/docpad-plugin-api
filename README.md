@@ -55,7 +55,7 @@ docpadConfig = {
     api:
       baseApiUrl: '/APIURLTEST'
       source: [
-        uri: 'api/api-test.js'
+        file: 'api/api-test.js'
         ]
 }
 
@@ -85,5 +85,3 @@ and licensed under:
 - The incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://opensource.org/licenses/mit-license.php)
 
 <!-- /LICENSE -->
-
-
