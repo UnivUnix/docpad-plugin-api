@@ -10,8 +10,8 @@ module.exports = (BasePlugin) ->
 		config:
 			baseApiUrl: '/api'
 			source: [
-				uri: '',
-				uri: ''
+				file: '',
+				file: ''
 			]
 
 		serverExtend: (opts) ->
@@ -21,7 +21,7 @@ module.exports = (BasePlugin) ->
 			rootPath = docpad.getConfig().rootPath
 			customApis = []
 			for src in @config.source
-				customApis.push(require(path.join(rootPath, src.uri)))
+				customApis.push(require(path.join(rootPath, src.file)))
 
 			# Default route.
 			server.get "#{@config.baseApiUrl}/engine/version", (req, res, next) ->

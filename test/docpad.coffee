@@ -8,7 +8,7 @@ docpadConfig = {
     api:
       baseApiUrl: '/APIURLTEST'
       source: [
-        uri: 'api/api-test.js'
+        file: 'api/api-test.js'
         ]
 }
 
