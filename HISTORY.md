@@ -3,7 +3,6 @@
 v2.1.0 Coming soon
 
 * Load multiple API Javascript files.
-* Returns 404 and 500 errors in JSON format.
 * Configurable API base URL.
 
 v2.0.1 February 28, 2017
