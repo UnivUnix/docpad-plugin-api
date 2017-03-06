@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-api",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "DocPad plugin that inyects your custom REST api inside a site built with Docpad.",
   "homepage": "https://github.com/univunix/docpad-plugin-api",
   "license": "MIT",
