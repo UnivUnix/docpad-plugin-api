@@ -5,10 +5,6 @@
 
 # Api plugin for [DocPad](http://docpad.org)
 
-# ATENTION
-
-This plugin is in development and it doesn't have any stable version. Don't use in production systems.
-
 <!-- INSTALL/ -->
 
 ## Install
@@ -85,5 +81,3 @@ and licensed under:
 - The incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://opensource.org/licenses/mit-license.php)
 
 <!-- /LICENSE -->
-
-
