@@ -1,6 +1,6 @@
 ## History
 
-v2.1.0 Coming soon
+v2.1.5 March 6, 2017
 
 * Load multiple API Javascript files.
 * Configurable API base URL.
