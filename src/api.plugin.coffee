@@ -1,5 +1,5 @@
 path = require('path')
-packJson = require('../package.json');
+packJson = require('../package.json')
 # Export Plugin
 module.exports = (BasePlugin) ->
 	# Define Plugin
@@ -10,8 +10,11 @@ module.exports = (BasePlugin) ->
 		config:
 			baseApiUrl: '/api'
 			source: [
-				file: '',
-				file: ''
+				{
+					file: ''
+				}, {
+					file: ''
+				}
 			]
 
 		serverExtend: (opts) ->
