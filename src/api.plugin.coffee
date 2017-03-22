@@ -24,8 +24,11 @@ module.exports = (BasePlugin) ->
 			rootPath = docpad.getConfig().rootPath
 			customApis = []
 			for src in @config.source
-				customApis.push(require(path.join(rootPath, src.file)))
-			docpad.log('info', 'Api - Loaded files: ' + @config.source.length)
+				try
+					customApis.push(require(path.join(rootPath, src.file)))
+				catch error
+				  docpad.log('error', 'Api - Error: ' + error.message)
+			docpad.log('info', 'Api - Loaded files: ' + customApis.length)
 
 			# Default route.
 			server.get "#{@config.baseApiUrl}/engine/version", (req, res, next) ->
