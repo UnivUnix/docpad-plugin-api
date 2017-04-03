@@ -3,9 +3,7 @@
   "version": "2.1.6",
   "description": "DocPad plugin that injects your custom REST api inside a site built with Docpad.",
   "homepage": "https://github.com/univunix/docpad-plugin-api",
-  "license": {
-    "type": "MIT"
-  },
+  "license": "MIT",
   "keywords": [
     "docpad",
     "docpad-plugin",
@@ -46,17 +44,12 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
-    "coffee-script": "^1.9.1",
     "docpad": "6",
     "mocha": "^3.2.0",
-    "projectz": "^0.5.0",
     "request": "^2.79.0"
   },
-  "main": "./out/api.plugin.js",
+  "main": "./src/api.plugin.js",
   "scripts": {
-    "test": "node ./out/api.test.js"
-  },
-  "cakeConfiguration": {
-    "COFFEE_SRC_PATH": "src"
+    "test": "node ./src/api.test.js"
   }
 }

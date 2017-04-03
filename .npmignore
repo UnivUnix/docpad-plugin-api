@@ -27,6 +27,7 @@ CONTRIBUTING.md
 HISTORY.md
 **/src/
 **/test/
+project.geany
 
 # Other Package Definitions
 template.js
