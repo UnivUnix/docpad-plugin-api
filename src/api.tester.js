@@ -1,45 +1,44 @@
 // Export plugin tester
-module.exports = (testers) => {
-  const chai = require('chai')
-  const request = require('request')
-  const expect = chai.expect
+module.exports = function (testers) {
+  const chai = require('chai');
+  const request = require('request');
+  const expect = chai.expect;
 
-  class ApiTester extends testers.ServerTester {
-    testServer (next) {
+  return class ApiTester extends testers.ServerTester {
+    testServer () {
       // Prepare
-      let tester = this
-      // Create server
-      super()
+      const tester = this;
+
       // Test
-      this.suite('plugin api', (suite, test) => {
-        const baseUrl = `http://localhost:${tester.docpad.config.port}`
+      this.suite('api plugin', (suite, test) => {
+        const baseUrl = `http://localhost:${tester.docpad.config.port}`;
 
         test(`GET ${tester.docpad.config.plugins.api.baseApiUrl}/engine/version url`, (done) => {
-          let fileUrl = `${baseUrl}${tester.docpad.config.plugins.api.baseApiUrl}/engine/version`
+          const fileUrl = `${baseUrl}${tester.docpad.config.plugins.api.baseApiUrl}/engine/version`;
           request(fileUrl, (err, response, actual) => {
             if (err) {
-              return done(err)
+              return done(err);
             }
-            let actualStr = actual.match(/docpad-plugin-api/)
-            let expectedStr = 'docpad-plugin-api'
-            expect(actualStr[0]).to.equal(expectedStr)
-            return done()
-          })
-        })
+            const actualStr = actual.match(/docpad-plugin-api/);
+            const expectedStr = 'docpad-plugin-api';
+            expect(actualStr[0]).to.equal(expectedStr);
+            return done();
+          });
+        });
 
         test(`GET ${tester.docpad.config.plugins.api.baseApiUrl}/test`, (done) => {
-          let fileUrl = `${baseUrl}${tester.docpad.config.plugins.api.baseApiUrl}/test`
+          const fileUrl = `${baseUrl}${tester.docpad.config.plugins.api.baseApiUrl}/test`;
           request(fileUrl, (err, response, actual) => {
             if (err) {
-              return done(err)
+              return done(err);
             }
-            let actualStr = actual.match(/OK/)
-            let expectedStr = 'OK'
-            expect(actualStr[0]).to.equal(expectedStr)
-            return done()
-          })
-        })
-      })
+            const actualStr = actual.match(/OK/);
+            const expectedStr = 'OK';
+            expect(actualStr[0]).to.equal(expectedStr);
+            return done();
+          });
+        });
+      });
     }
-  }
-}
+  };
+};
