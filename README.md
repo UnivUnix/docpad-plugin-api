@@ -1,4 +1,4 @@
-# YourPluginName Plugin for [DocPad](http://docpad.org)
+# Api Plugin for [DocPad](http://docpad.org)
 
 <!-- BADGES/ -->
 
@@ -40,11 +40,19 @@ Install this DocPad plugin by entering <code>docpad install api</code> into your
 
 <!-- BACKERS/ -->
 
+<h2>Backers</h2>
+
 <h3>Maintainers</h3>
 
 These amazing people are maintaining this project:
 
 <ul><li><a href="http://www.univunix.com">Ángel González</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=Aglezabad" title="View the GitHub contributions of Ángel González on repository univunix/docpad-plugin-api">view contributions</a></li></ul>
+
+<h3>Sponsors</h3>
+
+No sponsors yet! Will you be the first?
+
+
 
 <h3>Contributors</h3>
 
