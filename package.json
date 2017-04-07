@@ -65,7 +65,7 @@
     }
   ],
   "engines": {
-    "node": ">=6.x",
+    "node": ">=4.x",
     "docpad": ">=6.x"
   },
   "peerDependencies": {
