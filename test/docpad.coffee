@@ -7,9 +7,11 @@ docpadConfig = {
   plugins:
     api:
       baseApiUrl: '/APIURLTEST'
-      source: [
-        file: 'api/api-test.js'
-        ]
+      source: [{
+          file: 'api/api-test.js'
+        },{
+          file: 'api/missing.js'
+        }]
 }
 
 # Export the DocPad Configuration
