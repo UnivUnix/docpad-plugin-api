@@ -1,8 +1,11 @@
 ## History
 
+## v2.2.1 2017 April 15
+- New api loading system. You can use multiple isolated apis. (Sorry for breaking changes)
+- Added new version due to errors in npm registry.
+
 ## v2.2.0 2017 April 3
 - Conversion from Coffeescript to ES6 (ES5 included through Babel)
-- New api loading system. You can use multiple isolated apis. (Sorry for breaking changes)
 
 ## v2.1.5 2017 March 6
 - Load multiple API Javascript files and configurable API base URL
