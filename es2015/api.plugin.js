@@ -26,25 +26,82 @@ module.exports = function (BasePlugin) {
     _createClass(ApiPlugin, [{
       key: 'serverExtend',
       value: function serverExtend(opts) {
+        // Error types
+        var DPA_CONFIG_ERROR = 'DPAConfigError';
+        var DPA_SRC_ERROR = 'DPASrcError';
+
         // Extract server from options.
         var server = opts.server;
 
         var docpad = this.docpad;
         var rootPath = docpad.getConfig().rootPath;
-        var customApis = [];
-        var src = void 0;
+        var apis = [];
+        var configSrc = void 0,
+            configJson = void 0,
+            func = void 0;
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;
 
         try {
-          for (var _iterator = this.config.source[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            src = _step.value;
+          for (var _iterator = this.config.cfgSrc[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            configSrc = _step.value;
 
             try {
-              customApis.push(require(path.join(rootPath, src.file)));
-            } catch (error) {
-              docpad.log('error', 'Api - Error: ' + error.message);
+              // Variables inside try block.
+              var jsSrc = void 0;
+              var _api = {};
+              // Load config file.
+              configJson = require(path.join(rootPath, configSrc));
+              // Check if baseApiUrl is set.
+              if (!configJson.baseApiUrl) {
+                var dpaError = new Error('No baseApiUrl set in config file.\n\tIn ' + path.join(rootPath, configSrc));
+                dpaError.name = DPA_CONFIG_ERROR;
+                throw dpaError;
+              }
+              _api.baseApiUrl = configJson.baseApiUrl;
+              // Check if there's any source set.
+              if (!configJson.src || configJson.src.length === 0) {
+                var _dpaError = new Error('The src parameter is\'nt properly configured.\n\tIn ' + path.join(rootPath, configSrc));
+                _dpaError.name = DPA_CONFIG_ERROR;
+                throw _dpaError;
+              }
+              _api.src = [];
+              var _iteratorNormalCompletion3 = true;
+              var _didIteratorError3 = false;
+              var _iteratorError3 = undefined;
+
+              try {
+                for (var _iterator3 = configJson.src[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                  jsSrc = _step3.value;
+
+                  try {
+                    _api.src.push(require(path.join(rootPath, jsSrc)));
+                  } catch (err) {
+                    var _dpaError2 = new Error(err.name + ': ' + err.message + '\n\tIn ' + path.join(rootPath, jsSrc));
+                    _dpaError2.name = DPA_SRC_ERROR;
+                    throw _dpaError2;
+                  }
+                }
+                // When all configuration is ok, insert in apis array.
+              } catch (err) {
+                _didIteratorError3 = true;
+                _iteratorError3 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                    _iterator3.return();
+                  }
+                } finally {
+                  if (_didIteratorError3) {
+                    throw _iteratorError3;
+                  }
+                }
+              }
+
+              apis.push(_api);
+            } catch (err) {
+              docpad.log('error', 'Api - ' + err.name + ': ' + err.message);
             }
           }
         } catch (err) {
@@ -62,10 +119,10 @@ module.exports = function (BasePlugin) {
           }
         }
 
-        docpad.log('info', 'Api - Loaded files: ' + customApis.length);
+        docpad.log('info', 'Api - Loaded files: ' + apis.length);
 
         // Default route.
-        server.get(this.config.baseApiUrl + '/engine/version', function (req, res) {
+        server.get('/engine/version', function (req, res) {
           return res.json({
             name: packJson.name,
             dev: packJson.author,
@@ -73,17 +130,39 @@ module.exports = function (BasePlugin) {
           });
         });
 
+        var api = void 0;
         // Go to custom API routes.
-        var func = void 0;
         var _iteratorNormalCompletion2 = true;
         var _didIteratorError2 = false;
         var _iteratorError2 = undefined;
 
         try {
-          for (var _iterator2 = customApis[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            func = _step2.value;
+          for (var _iterator2 = apis[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            api = _step2.value;
+            var _iteratorNormalCompletion4 = true;
+            var _didIteratorError4 = false;
+            var _iteratorError4 = undefined;
 
-            func(opts, this.config.baseApiUrl);
+            try {
+              for (var _iterator4 = api.src[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                func = _step4.value;
+
+                func(opts, api.baseApiUrl);
+              }
+            } catch (err) {
+              _didIteratorError4 = true;
+              _iteratorError4 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                  _iterator4.return();
+                }
+              } finally {
+                if (_didIteratorError4) {
+                  throw _iteratorError4;
+                }
+              }
+            }
           }
         } catch (err) {
           _didIteratorError2 = true;
@@ -109,10 +188,7 @@ module.exports = function (BasePlugin) {
       key: 'initialConfig',
       get: function get() {
         return {
-          baseApiUrl: '/api',
-          source: [{
-            file: ''
-          }]
+          cfgSrc: []
         };
       }
     }]);

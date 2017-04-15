@@ -6,12 +6,11 @@ docpadConfig = {
   # Plugins configuration
   plugins:
     api:
-      baseApiUrl: '/APIURLTEST'
-      source: [{
-          file: 'api/api-test.js'
-        },{
-          file: 'api/missing.js'
-        }]
+      cfgSrc: [
+        'testapi1/dpaconfig.json',
+        'testapi2/dpaconfig.json',
+        'testapi0/dpaconfig.json'
+      ]
 }
 
 # Export the DocPad Configuration
