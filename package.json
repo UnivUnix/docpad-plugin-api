@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-api",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "DocPad plugin that injects your custom REST api inside a site built with Docpad.",
   "homepage": "https://github.com/univunix/docpad-plugin-api",
   "license": "MIT",
@@ -100,7 +100,7 @@
     "our:meta": "npm run our:meta:projectz",
     "our:meta:projectz": "projectz compile",
     "our:verify": "npm run our:verify:eslint",
-    "our:verify:eslint": "eslint ./src",
+    "our:verify:eslint": "./node_modules/.bin/eslint ./src",
     "our:test": "npm run our:verify && npm test",
     "our:release": "npm run our:release:prepare && npm run our:release:check && npm run our:release:tag && npm run our:release:push",
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",

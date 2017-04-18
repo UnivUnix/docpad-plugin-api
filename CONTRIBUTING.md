@@ -1,9 +1,3 @@
-<!--
-v1.3.22 June 23, 2013
-https://github.com/bevry/base
--->
-
-
 # Contribute
 
 
@@ -25,27 +19,24 @@ For developers and contributors
 	``` bash
 	npm install -g coffee-script
 	```
+	**Note**: You will need coffee-script for Docpad (v6). This plugin doesn't need it.
 
 3. Install local dependencies
 
 	``` bash
-	cake install
+	npm run our:setup
 	```
 
 4. Compile project
 
 	``` bash
-	# Only once
-	cake compile
-
-	# On every change
-	cake watch
+	npm run our:compile
 	```
 
 5. Run tests
 
 	``` bash
-	cake test
+	npm run our:test
 	```
 
 
@@ -56,7 +47,7 @@ For project maintainers
 1. Update meta files with latest information
 
 	``` bash
-	cake prepublish
+	npm run our:release:prepare
 	```
 
 2. Add a changelog entry to `HISTORY.md` with change information
@@ -77,5 +68,6 @@ For project maintainers
 5. Publish new version
 
 	``` bash
-	cake publish
+	npm run our:release
+	npm publish
 	```

@@ -16,11 +16,8 @@ var config = {
     }
   },
   env: {
-    browser: true,
     node: true,
-    es6: true,
-    commonjs: true,
-    amd: true
+    es6: true
   },
   rules: {
     // ----------------------------

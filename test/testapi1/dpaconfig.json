@@ -1,0 +1,7 @@
+{
+  "baseApiUrl": "/testone",
+  "src": [
+    "testapi1/src/test11.js",
+    "testapi1/src/test12.js"
+  ]
+}
