@@ -1,5 +1,8 @@
 ## History
 
+## v2.2.2 2017 May 4
+- Version marked as stable.
+
 ## v2.2.1 2017 April 15
 - New api loading system. You can use multiple isolated apis. (Sorry for breaking changes)
 - Added new version due to errors in npm registry.
