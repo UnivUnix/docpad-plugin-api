@@ -13,46 +13,66 @@
 
 ## How to use the plugin
 
-* First, you need to create a Javascript file inside your Docpad project.
-You must create that as a NodeJS module. Check the next example:
+First, create your API. You have to use Javascript as language
+ and you can use NodeJS or ExpressJS methods and objects.
 
-``` javascript
-module.exports = function (opts, baseApiUrl) {
+Each Javascript file must have this structure:
+
+```javascript
+// Each module.exports MUST BE a function with these two arguments
+module.exports = function (opts, baseApiUrl){
+  // The ExpressJS server is an attribute of opts.
   var server = opts.server
 
+  // You can use ExpressJS functions (version 3.x)
   server.get(baseApiUrl + '/test', function (req, res, next) {
     return res.json({
       test: 'OK'
     })
   })
 
-  server.get(baseApiUrl + '/bbbb', function (req, res, next) {
+  server.get('/bbbb', function (req, res, next) {
     var err = new Error()
     next(err)
   })
 }
 ```
 
-* Finally, you have to put the path of the file in Docpad configuration file:
+Second, you need to create the api configuration file. It's in JSON format.
+This is the new step for newer versions, because you can set different apis using multiple configuration files.
 
-``` coffee-script
-# DocPad Configuration File
-# http://docpad.org/docs/config
+You can name it as you want. In my case, I call it "dpaconfig.json"
 
-# Define the DocPad Configuration
-docpadConfig = {
-  # Plugins configuration
-  plugins:
-    api:
-      baseApiUrl: '/APIURLTEST'
-      source: [
-        file: 'api/api-test.js'
-        ]
+```javascript
+{
+  "baseApiUrl": "/testone",
+  "src": [
+    "testapi1/src/test11.js",
+    "testapi1/src/test12.js"
+  ]
 }
-
-# Export the DocPad Configuration
-module.exports = docpadConfig
 ```
+
+Notes about dbaconfig.json file:
+* It's required to set the baseApiUrl and src variables.
+* The src routes have to be relative to Docpad website root folder (the same level as docpad configuration file).
+
+Finally, set the route of each dpaconfig file in Docpad configuration file.
+
+```coffee-script
+plugins:
+  api:
+    cfgSrc: [
+      'testapi1/dpaconfig.json',
+      'testapi2/dpaconfig.json',
+      'testapi0/dpaconfig.json'
+    ]
+```
+
+Notes about configuration:
+ *You have to set relative routes using Docpad root folder as base.
+
+And we're done. Enjoy your custom api without refactoring to ExpressJS.
 
 <!-- INSTALL/ -->
 
