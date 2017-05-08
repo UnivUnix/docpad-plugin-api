@@ -20,11 +20,12 @@
     ],
     "config": {}
   },
-  "author": "UnivUnix <admins@univunix.com> (http://univunix.com)",
+  "author": "Ángel González <admins@univunix.com> (http://univunix.com)",
   "maintainers": [
     "Ángel González <aglezabad@gmail.com> (http://www.univunix.com)"
   ],
   "contributors": [
+    "Ángel González <admins@univunix.com> (http://univunix.com)",
     "Benjamin Lupton (http://balupton.com)",
     "Michael Duane Mooring <Mike@mdm.cc> (http://mdm.cc)",
     "Rob Loach <robloach@gmail.com> (http://robloach.net)",
