@@ -1,5 +1,8 @@
 ## History
 
+## v2.2.3 2017 May 8
+- Fixing dependencies according to David DM recommendations.
+
 ## v2.2.2 2017 May 4
 - Version marked as stable.
 
