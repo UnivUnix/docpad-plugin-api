@@ -7,8 +7,7 @@ docpadConfig = {
   plugins:
     api:
       cfgSrc: [
-        'testapi1/dpaconfig.json',
-        'testapi2/dpaconfig.json'
+        'testapi1/dpaconfig.json'
       ]
 }
 
