@@ -23,7 +23,7 @@
 # Specify your npm email
 # travis env set NPM_EMAIL "$NPM_EMAIL"
 
-
+source ~/.nvm/nvm.sh
 # External Environment Variables:
 export DESIRED_NODE_VERSION
 if test -z "$DESIRED_NODE_VERSION"; then

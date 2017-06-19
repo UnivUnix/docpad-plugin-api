@@ -16,10 +16,7 @@ cache:
   directories:
     - $HOME/.npm  # npm's cache
     - $HOME/.yarn-cache  # yarn's cache
-
 install:
   - ./.travis/node-install.bash
 before_script:
   - ./.travis/node-verify.bash
-after_success:
-  - ./.travis/node-publish.bash

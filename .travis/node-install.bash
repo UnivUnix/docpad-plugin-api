@@ -17,7 +17,7 @@
 # To setup the project with a custom command, do so with:
 # travis env set SETUP_COMMAND "npm run our:setup" --public
 
-
+source ~/.nvm/nvm.sh
 # User Environment Variables:
 export DESIRED_NODE_VERSION
 if test -z "$DESIRED_NODE_VERSION"; then

@@ -16,7 +16,7 @@
 # To specify a specific node version (rather than the LTS version)
 # travis env set DESIRED_NODE_VERSION "7" --public
 
-
+source ~/.nvm/nvm.sh
 # User Environment Variables:
 export DESIRED_NODE_VERSION
 if test -z "$DESIRED_NODE_VERSION"; then
