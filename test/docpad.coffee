@@ -8,8 +8,7 @@ docpadConfig = {
     api:
       cfgSrc: [
         'testapi1/dpaconfig.json',
-        'testapi2/dpaconfig.json',
-        'testapi0/dpaconfig.json'
+        'testapi2/dpaconfig.json'
       ]
 }
 
