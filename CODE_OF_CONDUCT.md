@@ -2,7 +2,7 @@
 
 ## Introducción
 
-En este texto se va a declarar unas "normas" porque parece que se ha perdido el sentido común en los proyectos de software libre y porque el CoC provisto por Github no me gusta (ambiguo, con excesiva bruocracia). 
+En este texto se van a declarar unas "normas", porque parece que se ha perdido el sentido común en los proyectos de software libre y porque el CoC provisto por Github no me gusta (ambiguo, con excesiva burocracia). 
 
 TLDR: Si uno no sabe comportarse como una persona dentro de la sociedad, no sé qué pinta aquí.
 
