@@ -4,7 +4,7 @@
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; <a href="http://univunix.com">UnivUnix</a></li></ul>
+<ul><li>Copyright &copy; <a href="http://univunix.com">Ángel González</a></li></ul>
 
 and licensed under:
 
