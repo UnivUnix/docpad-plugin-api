@@ -6,6 +6,11 @@ module.exports = function (BasePlugin) {
   // Define plugin
   return class ApiPlugin extends BasePlugin {
 
+    constructor (opts) {
+      super(opts);
+      this.apis = [];
+    }
+
     get name () {
       return 'api';
     }
@@ -16,17 +21,16 @@ module.exports = function (BasePlugin) {
       };
     }
 
-    serverExtend (opts) {
+    docpadReady () {
       // Error types
       const DPA_CONFIG_ERROR = 'DPAConfigError';
       const DPA_SRC_ERROR = 'DPASrcError';
 
-      // Extract server from options.
-      const {server} = opts;
+      // Get docpad object and rootPath
       const docpad = this.docpad;
       const rootPath = docpad.getConfig().rootPath;
-      const apis = [];
-      let configSrc, configJson, func;
+
+      let configSrc, configJson;
       for (configSrc of this.config.cfgSrc) {
         try {
           // Variables inside try block.
@@ -59,13 +63,20 @@ module.exports = function (BasePlugin) {
             }
           }
           // When all configuration is ok, insert in apis array.
-          apis.push(api);
+          this.apis.push(api);
         }
         catch (err) {
           docpad.log('error', 'Api - ' + err.name + ': ' + err.message);
         }
       }
-      docpad.log('info', 'Api - Loaded files: ' + apis.length);
+      docpad.log('info', 'Api - Loaded files: ' + this.apis.length);
+    }
+
+    serverExtend (opts) {
+      // Extract server from options.
+      const {server} = opts;
+      const apis = this.apis;
+      let func, api;
 
       // Default route.
       server.get('/engine/version', (req, res) =>
@@ -76,7 +87,6 @@ module.exports = function (BasePlugin) {
         })
       );
 
-      let api;
       // Go to custom API routes.
       for (api of apis) {
         for (func of api.src) {

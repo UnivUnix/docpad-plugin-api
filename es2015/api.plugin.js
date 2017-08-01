@@ -17,28 +17,28 @@ module.exports = function (BasePlugin) {
   return function (_BasePlugin) {
     _inherits(ApiPlugin, _BasePlugin);
 
-    function ApiPlugin() {
+    function ApiPlugin(opts) {
       _classCallCheck(this, ApiPlugin);
 
-      return _possibleConstructorReturn(this, (ApiPlugin.__proto__ || Object.getPrototypeOf(ApiPlugin)).apply(this, arguments));
+      var _this = _possibleConstructorReturn(this, (ApiPlugin.__proto__ || Object.getPrototypeOf(ApiPlugin)).call(this, opts));
+
+      _this.apis = [];
+      return _this;
     }
 
     _createClass(ApiPlugin, [{
-      key: 'serverExtend',
-      value: function serverExtend(opts) {
+      key: 'docpadReady',
+      value: function docpadReady() {
         // Error types
         var DPA_CONFIG_ERROR = 'DPAConfigError';
         var DPA_SRC_ERROR = 'DPASrcError';
 
-        // Extract server from options.
-        var server = opts.server;
-
+        // Get docpad object and rootPath
         var docpad = this.docpad;
         var rootPath = docpad.getConfig().rootPath;
-        var apis = [];
+
         var configSrc = void 0,
-            configJson = void 0,
-            func = void 0;
+            configJson = void 0;
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;
@@ -50,7 +50,7 @@ module.exports = function (BasePlugin) {
             try {
               // Variables inside try block.
               var jsSrc = void 0;
-              var _api = {};
+              var api = {};
               // Load config file.
               configJson = require(path.join(rootPath, configSrc));
               // Check if baseApiUrl is set.
@@ -59,24 +59,24 @@ module.exports = function (BasePlugin) {
                 dpaError.name = DPA_CONFIG_ERROR;
                 throw dpaError;
               }
-              _api.baseApiUrl = configJson.baseApiUrl;
+              api.baseApiUrl = configJson.baseApiUrl;
               // Check if there's any source set.
               if (!configJson.src || configJson.src.length === 0) {
                 var _dpaError = new Error('The src parameter is\'nt properly configured.\n\tIn ' + path.join(rootPath, configSrc));
                 _dpaError.name = DPA_CONFIG_ERROR;
                 throw _dpaError;
               }
-              _api.src = [];
-              var _iteratorNormalCompletion3 = true;
-              var _didIteratorError3 = false;
-              var _iteratorError3 = undefined;
+              api.src = [];
+              var _iteratorNormalCompletion2 = true;
+              var _didIteratorError2 = false;
+              var _iteratorError2 = undefined;
 
               try {
-                for (var _iterator3 = configJson.src[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                  jsSrc = _step3.value;
+                for (var _iterator2 = configJson.src[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                  jsSrc = _step2.value;
 
                   try {
-                    _api.src.push(require(path.join(rootPath, jsSrc)));
+                    api.src.push(require(path.join(rootPath, jsSrc)));
                   } catch (err) {
                     var _dpaError2 = new Error(err.name + ': ' + err.message + '\n\tIn ' + path.join(rootPath, jsSrc));
                     _dpaError2.name = DPA_SRC_ERROR;
@@ -85,21 +85,21 @@ module.exports = function (BasePlugin) {
                 }
                 // When all configuration is ok, insert in apis array.
               } catch (err) {
-                _didIteratorError3 = true;
-                _iteratorError3 = err;
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                    _iterator3.return();
+                  if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                    _iterator2.return();
                   }
                 } finally {
-                  if (_didIteratorError3) {
-                    throw _iteratorError3;
+                  if (_didIteratorError2) {
+                    throw _iteratorError2;
                   }
                 }
               }
 
-              apis.push(_api);
+              this.apis.push(api);
             } catch (err) {
               docpad.log('error', 'Api - ' + err.name + ': ' + err.message);
             }
@@ -119,7 +119,17 @@ module.exports = function (BasePlugin) {
           }
         }
 
-        docpad.log('info', 'Api - Loaded files: ' + apis.length);
+        docpad.log('info', 'Api - Loaded files: ' + this.apis.length);
+      }
+    }, {
+      key: 'serverExtend',
+      value: function serverExtend(opts) {
+        // Extract server from options.
+        var server = opts.server;
+
+        var apis = this.apis;
+        var func = void 0,
+            api = void 0;
 
         // Default route.
         server.get('/engine/version', function (req, res) {
@@ -130,15 +140,14 @@ module.exports = function (BasePlugin) {
           });
         });
 
-        var api = void 0;
         // Go to custom API routes.
-        var _iteratorNormalCompletion2 = true;
-        var _didIteratorError2 = false;
-        var _iteratorError2 = undefined;
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
 
         try {
-          for (var _iterator2 = apis[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            api = _step2.value;
+          for (var _iterator3 = apis[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            api = _step3.value;
             var _iteratorNormalCompletion4 = true;
             var _didIteratorError4 = false;
             var _iteratorError4 = undefined;
@@ -165,16 +174,16 @@ module.exports = function (BasePlugin) {
             }
           }
         } catch (err) {
-          _didIteratorError2 = true;
-          _iteratorError2 = err;
+          _didIteratorError3 = true;
+          _iteratorError3 = err;
         } finally {
           try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-              _iterator2.return();
+            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+              _iterator3.return();
             }
           } finally {
-            if (_didIteratorError2) {
-              throw _iteratorError2;
+            if (_didIteratorError3) {
+              throw _iteratorError3;
             }
           }
         }
