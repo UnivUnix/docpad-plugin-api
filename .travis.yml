@@ -1,7 +1,6 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.8"   # end of life
   - "0.10"  # end of life
   - "0.12"  # maintenance
   - "4"     # lts
