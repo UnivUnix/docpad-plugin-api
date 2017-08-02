@@ -1,5 +1,8 @@
 ## History
 
+## v2.3.0 2017 August 2
+- Moving api files loading system to docpadReady event. Alpha version.
+
 ## v2.2.2 2017 May 4
 - Version marked as stable.
 
