@@ -87,7 +87,7 @@ Install this DocPad plugin by entering <code>docpad install api</code> into your
 
 <h2>History</h2>
 
-<a href="https://github.com/UnivUnix/docpad-plugin-api/blob/master/HISTORY.md#files">Discover the release history by heading on over to the <code>HISTORY.md</code> file.</a>
+<a href="https://github.com/univunix/docpad-plugin-api/blob/master/HISTORY.md#files">Discover the release history by heading on over to the <code>HISTORY.md</code> file.</a>
 
 <!-- /HISTORY -->
 
@@ -96,7 +96,7 @@ Install this DocPad plugin by entering <code>docpad install api</code> into your
 
 <h2>Contribute</h2>
 
-<a href="https://github.com/UnivUnix/docpad-plugin-api/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
+<a href="https://github.com/univunix/docpad-plugin-api/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
 <!-- /CONTRIBUTE -->
 
@@ -121,15 +121,15 @@ No sponsors yet! Will you be the first?
 
 These amazing people have contributed code to this project:
 
-<ul><li><a href="http://UnivUnix.com">Ángel González</a> — <a href="https://github.com/UnivUnix/docpad-plugin-api/commits?author=Aglezabad" title="View the GitHub contributions of Ángel González on repository UnivUnix/docpad-plugin-api">view contributions</a></li>
-<li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/UnivUnix/docpad-plugin-api/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository UnivUnix/docpad-plugin-api">view contributions</a></li>
-<li><a href="http://mdm.cc">Michael Duane Mooring</a> — <a href="https://github.com/UnivUnix/docpad-plugin-api/commits?author=mikeumus" title="View the GitHub contributions of Michael Duane Mooring on repository UnivUnix/docpad-plugin-api">view contributions</a></li>
-<li><a href="http://robloach.net">Rob Loach</a> — <a href="https://github.com/UnivUnix/docpad-plugin-api/commits?author=RobLoach" title="View the GitHub contributions of Rob Loach on repository UnivUnix/docpad-plugin-api">view contributions</a></li>
-<li><a href="https://github.com/vsopvsop">vsopvsop</a> — <a href="https://github.com/UnivUnix/docpad-plugin-api/commits?author=vsopvsop" title="View the GitHub contributions of vsopvsop on repository UnivUnix/docpad-plugin-api">view contributions</a></li>
+<ul><li><a href="http://univunix.com">Ángel González</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=Aglezabad" title="View the GitHub contributions of Ángel González on repository univunix/docpad-plugin-api">view contributions</a></li>
+<li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository univunix/docpad-plugin-api">view contributions</a></li>
+<li><a href="http://mdm.cc">Michael Duane Mooring</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=mikeumus" title="View the GitHub contributions of Michael Duane Mooring on repository univunix/docpad-plugin-api">view contributions</a></li>
+<li><a href="http://robloach.net">Rob Loach</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=RobLoach" title="View the GitHub contributions of Rob Loach on repository univunix/docpad-plugin-api">view contributions</a></li>
+<li><a href="https://github.com/vsopvsop">vsopvsop</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=vsopvsop" title="View the GitHub contributions of vsopvsop on repository univunix/docpad-plugin-api">view contributions</a></li>
 <li><a href="http://www.univunix.com">Ángel González</a></li>
-<li><a href="http://www.procesozombie.com/">fer2d2</a> — <a href="https://github.com/UnivUnix/docpad-plugin-api/commits?author=fer2d2" title="View the GitHub contributions of fer2d2 on repository UnivUnix/docpad-plugin-api">view contributions</a></li></ul>
+<li><a href="http://www.procesozombie.com/">fer2d2</a> — <a href="https://github.com/univunix/docpad-plugin-api/commits?author=fer2d2" title="View the GitHub contributions of fer2d2 on repository univunix/docpad-plugin-api">view contributions</a></li></ul>
 
-<a href="https://github.com/UnivUnix/docpad-plugin-api/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
+<a href="https://github.com/univunix/docpad-plugin-api/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
 <!-- /BACKERS -->
 
