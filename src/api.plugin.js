@@ -66,10 +66,15 @@ module.exports = function (BasePlugin) {
           this.apis.push(api);
         }
         catch (err) {
-          docpad.log('error', 'Api - ' + err.name + ': ' + err.message);
+          docpad.log('error', 'Api: ' + err.name + ' -> ' + err.message);
         }
       }
-      docpad.log('info', 'Api - Loaded files: ' + this.apis.length);
+      if (this.apis.length === 1) {
+        docpad.log('info', 'Api: ' + this.apis.length + ' loaded file.');
+      }
+      else {
+        docpad.log('info', 'Api: ' + this.apis.length + ' loaded files.');
+      }
     }
 
     serverExtend (opts) {
