@@ -1,5 +1,7 @@
 # Api Plugin for [DocPad](http://docpad.org)
 
+**Due to the closing of Docpad project in 1/2/2018, this plugin won't receive any extra feature. Only critical bugs will be solved.**
+
 <!-- BADGES/ -->
 
 <span class="badge-travisci"><a href="http://travis-ci.org/UnivUnix/docpad-plugin-api" title="Check this project's build status on TravisCI"><img src="https://img.shields.io/travis/UnivUnix/docpad-plugin-api/master.svg" alt="Travis CI Build Status" /></a></span>
