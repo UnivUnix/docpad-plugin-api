@@ -1,6 +1,6 @@
 # Api Plugin for [DocPad](http://docpad.org)
 
-**Due to the closing of Docpad project in 1/2/2018, this plugin won't receive any extra feature. Only critical bugs will be solved.**
+**~~Due to the closing of Docpad project in 1/2/2018, this plugin won't receive any extra feature. Only critical bugs will be solved.~~ Benjamin said that Docpad will get updates, but he will work as a side-project. We will add features if it's necessary.**
 
 <!-- BADGES/ -->
 
